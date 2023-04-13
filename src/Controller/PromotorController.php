@@ -103,8 +103,8 @@ class PromotorController extends AbstractController
 
         // set the response headers for image download
         $response = new Response();
-        $response->headers->set('Content-Type', 'image/jpeg');
-        $response->headers->set('Content-Disposition', 'attachment; filename="imagen.jpg"');
+        $response->headers->set('Content-Type', 'image/png');
+        $response->headers->set('Content-Disposition', 'attachment; filename="imagen.png"');
         $response->setContent($image);
 
         return $response;
