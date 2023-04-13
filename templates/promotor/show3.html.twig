@@ -1,0 +1,30 @@
+ {% extends 'base.html.twig' %}
+
+{# {% block title %}Promotor{% endblock %} #}
+{% block CSS%}
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}" />
+{% endblock %}
+{% block body %}
+
+<div class="container">
+    <h1>Promotor</h1>
+    <h1>{{promotor.grupo | upper}}</h1>
+    <h1>{{promotor.nombre | upper}}
+    <img src="{{ asset('img/'~ promotor.dni ~ '.png') }}">
+</div>
+    {# <table class="table">
+        <tbody>
+            <tr>
+                <th>Grupo</th>
+                <td>{{ promotor.grupo }}</td>
+                <th>Promotor</th>
+                <td>{{ promotor.nombre }}</td>
+                <th>QR</th>
+                <td><img src="{{ asset('img/'~ promotor.dni ~ '.png') }}" alt="QR Code"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_promotor_index') }}">back to list</a> #}
+
+{% endblock %}

@@ -1,0 +1,73 @@
+body{
+  background-image: url("../img/Witching\ Hour.jpg");
+}
+.cuerpo {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #f7f7f9;
+    border: 1px solid red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .logo img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .col-md-4 p:first-child {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #666;
+  }
+  
+  .col-md-4 .btn {
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 0px;
+    width: 100%;
+  }
+  
+  
+  .divEntrada {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #d8d8d8;
+    border-radius: 10px;
+  }
+  
+  .divEntrada img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  @media (max-width: 768px) {
+    .divEntrada {
+        height: auto;
+    }
+  }
+  .Entrada {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #d8d8d8;
+    border-radius: 10px;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Promotor{% endblock %}
+
+{% block CSS %}
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}" />
+{% endblock %}
+
+{% block body %}
+    {% if form_errors(form) %}
+        <div class="alert alert-danger">
+            {{ form_errors(form) }}
+        </div>
+    {% endif %}
+
+    {# {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }} #}
+
+    {{ component('promotor_form', {
+        form: form,
+    }) }}
+
+{% endblock %}
+

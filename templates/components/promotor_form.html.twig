@@ -1,0 +1,26 @@
+<div{{ attributes }}
+    data-action="change->live#update"
+>
+
+<div class="container">
+    <h1>Formulario de registro</h1>
+    <hr>
+    {{ form_start(form) }}
+      <div class="form-field">
+        {{ form_row(form.evento) }}
+      </div>
+      <div class="form-field">
+        {{ form_row(form.nombre) }}
+      </div>
+      <div class="form-field">
+        {{ form_row(form.grupo) }}
+      </div>
+      <div class="form-field">
+        {{ form_row(form.dni) }}
+      </div>
+      <div class="form-field">
+        <button class="btn" type="submit">{{ button_label|default('Save') }}</button>
+      </div>
+    {{ form_end(form) }}
+  </div>
+</div>

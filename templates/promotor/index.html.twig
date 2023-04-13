@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Promotor index{% endblock %}
+
+{% block body %}
+    <h1>Promotor index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Evento</th>
+                <th>Nombre</th>
+                <th>Grupo</th>
+                <th>Dni</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for promotors in promotor %}
+            <tr>
+                <td>{{ promotors.id }}</td>
+                <td>{{ promotors.evento }}</td>
+                <td>{{ promotors.nombre }}</td>
+                <td>{{ promotors.grupo }}</td>
+                <td>{{ promotors.dni }}</td>
+                <td>
+                
+                     <a href="{{ path('app_promotor_show', {'id': promotors.id}) }}">show</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_promotor_new') }}">Create new</a>
+    <a href="{{ path('app_qr_codes') }}"> QR </a>
+{% endblock %}

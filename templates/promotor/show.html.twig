@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Promotor{% endblock %}
+
+{% block CSS %}
+    <link rel="stylesheet" href="{{ asset('css/show.css') }}" />
+{% endblock %}
+
+{% block body %}
+    {# <h1>Promotor</h1>
+
+
+                <div>{{ promotor.grupo | upper}}</div>
+                <div class="col-md-8 align-middle">  
+            <div class="Entrada"><img src="{{ asset('img/'~ promotor.dni ~ '.png') }}" alt="QR Code">
+            </div>
+            </div>
+                    <a href="{{ path('app_down') }}" download="Promotor.png">Descargar vista como PNG</a>
+                    <a href="{{ path('app_down', {'id': promotor.id}) }}" class="btn btn-warning">Descargar vista como PNGs</a>
+                    <a href="{{ path('app_promotor_show3', {'id': promotor.id}) }}">show 2</a>
+                </td>
+        </tbody>
+    </table>
+    <a href="{{ path('app_promotor_index') }}">back to list</a> #}
+
+    <div class="container cuerpo">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="logo"><img src="img/Bob.jpg" width="50%"></div>
+            <div>
+                <p>HOLA! {{ promotor.nombre | upper}} TE GENERAMOS TU ENTRADA VIRTUAL, descargalo aqui.</p>
+                 <p>DESCARGA TU ENTRADA</p>
+                <p>
+
+                    <a href="{{ path('app_down', {'id': promotor.id}) }}" class="btn btn-warning">Descargar vista como PNGs</a>
+                 </p>
+                 <p>LA SIGUIENTE IMAGEN ES TU ENTRADA QR </p>
+              
+            </div>
+        </div>
+        <div class="col-md-8 align-middle">  
+            <div class="Entrada">
+              <img src="{{ asset('img/Bob.jpg') }}" class="d-block img-fluid" style="max-width: 100%;">
+            </div>
+        </div>
+    </div>
+  </div>
+{% endblock %}

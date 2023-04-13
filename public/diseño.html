@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
+  <title>Formulario de registro</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Formulario de registro</h1>
+    <form action="vista2.html" method="GET">
+      <div class="form-field">
+        <label for="evento">Evento:</label>
+        <input type="text" id="evento" name="evento" placeholder="VILLA SANTA" required>
+      </div>
+      <div class="form-field">
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Ej: Promotor..." required>
+      </div>
+      <div class="form-field">
+        <label for="grupo">Grupo:</label>
+        <input type="text" id="grupo" name="grupo" placeholder="Ej: A200" required>
+      </div>
+      <div class="form-field">
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" name="dni" placeholder="Ej: 12345678"  required>
+      </div>
+      <div class="form-field">
+        <button type="submit">Registrarse</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
