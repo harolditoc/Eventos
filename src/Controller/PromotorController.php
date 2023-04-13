@@ -91,7 +91,7 @@ class PromotorController extends AbstractController
 
         // set the options for image generation
         $snappy->setOption('enable-local-file-access', true);
-        $snappy->setOption('width', 850);
+        $snappy->setOption('width', 400);
         $snappy->setOption('height', 768);
         $snappy->setOption('quality', 100);
         
