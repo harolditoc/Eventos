@@ -16,6 +16,10 @@ use Endroid\QrCode\ErrorCorrectionLevel\ErrorCorrectionLevelLow;
 use Endroid\QrCode\QrCode;
 use Endroid\QrCode\Writer\PngWriter;
 use Knp\Snappy\Image;
+use Knp\Bundle\SnappyBundle\Snappy\Response\JpegResponse;
+use Knp\Bundle\SnappyBundle\Snappy\Response\pdfResponse;
+use Knp\Bundle\SnappyBundle\Snappy\Response\SnappyResponse;
+
 
 class PromotorController extends AbstractController
 {
@@ -61,8 +65,13 @@ class PromotorController extends AbstractController
     #[Route('/promotor/{id}', name: 'app_promotor_show', methods: ['GET'])]
     public function show(Promotor $promotor): Response
     {
+        $nombre = $promotor->getNombre();
+        $arrayN = explode(' ', $nombre);
+        $nombre = $arrayN[0];
+
         return $this->render('promotor/show.html.twig', [
             'promotor' => $promotor,
+            'nombre' => $nombre,
         ]);
     }
 
@@ -82,39 +91,53 @@ class PromotorController extends AbstractController
     }
 
     #[Route('/descargar/{id}', name: 'app_down')]
-    public function downloadAction($id, EntityManagerInterface $entityManager)
+    public function downloadAction($id, EntityManagerInterface $entityManager ,Image $img)
     {
         $promotorRepository = $entityManager->getRepository(Promotor::class);
         $promotor = $promotorRepository->find($id);
         // create an instance of Knp-snappy image generator
-        $snappy = new Image('"C:\Program Files\wkhtmltopdf\bin\wkhtmltoimage.exe"');
-
+        // $snappy = new Image('"C:\Program Files\wkhtmltopdf\bin\wkhtmltoimage.exe"');
+        $letters = strlen($promotor->getNombre());
         // set the options for image generation
-        $snappy->setOption('enable-local-file-access', true);
-        $snappy->setOption('width', 400);
-        $snappy->setOption('height', 768);
-        $snappy->setOption('quality', 100);
+        if($letters > 25) {
+            $altura = 790; //Nombre largo
+        } else {
+            $altura = 755; //Nombre corto
+        }
+        // $snappy->setOption('enable-local-file-access', true);
+        // $snappy->setOption('width', 400);
+        // $snappy->setOption('height', 768);
+        // $snappy->setOption('quality', 100);
+        // $snappy->setOption('crop-h', $altura_abajo);
         
         // render the view and generate image
         $html  = $this->renderView('promotor/show2.html.twig', [
             'promotor' => $promotor,
         ]);
-        $image = $snappy->getOutputFromHtml($html);
+        //$image = $snappy->getOutputFromHtml($html);
+        
 
         // set the response headers for image download
-        $response = new Response();
-        $response->headers->set('Content-Type', 'image/png');
-        $response->headers->set('Content-Disposition', 'attachment; filename="imagen.png"');
-        $response->setContent($image);
+        // $response = new Response();
+        // $response->headers->set('Content-Type', 'image/png');
+        // $response->headers->set('Content-Disposition', 'attachment; filename="imagen.png"');
+        // $response->setContent($image);
 
-        return $response;
+        // return $response;
+        $opciones = [
+            "width" => "400",   
+            "height" => $altura,
+            "quality" => "100",
+        ];
+        $figura = $img->getOutputFromHtml($html, $opciones);
+        return new SnappyResponse($figura, 'imagen.jpg', 'image/jpg');
     }
     
     #[Route('/qr/qr-codes', name: 'app_qr_codes')]
     public function verQr(): Response
     {
         $writer = new PngWriter();
-        $qrCode = QrCode::create('https://ksperu.com/')
+        $qrCode = QrCode::create($_ENV['DOMINIO_WEB'])
             ->setEncoding(new Encoding('UTF-8'))
             ->setErrorCorrectionLevel(new ErrorCorrectionLevelLow())
             ->setSize(120)

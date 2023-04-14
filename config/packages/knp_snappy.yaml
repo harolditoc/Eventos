@@ -1,0 +1,10 @@
+knp_snappy:
+  temporary_folder: "%kernel.cache_dir%/snappy"
+  process_timeout: 20 # In seconds
+  image:
+    enabled:  true
+    binary: '%env(WKHTMLTOIMAGE_PATH)%'
+    options: 
+      - { name: 'enable-local-file-access', value: true }
+
+
