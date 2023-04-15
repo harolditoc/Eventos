@@ -18,7 +18,7 @@
     border-radius: 5px 17px; 
     border: 1px outset #800000;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
-    max-width: 960px;
+    max-width: 400px !important;
     margin: 0 auto;
     position: absolute;
     top: 50%;
@@ -26,10 +26,27 @@
     transform: translate(-50%, -50%);
     
     }
-    
-  div{
-      font-family: Arial black;
-  }
+    @media only screen and (max-width: 768px) {
+        *{
+            font-family: Arial !important;
+        }
+        body {
+          background: #c31432 !important;
+        }
+        .container{
+          position: absolute;
+          top: 0%;
+          left: 0%;
+          transform: translate(0%, 0%); 
+        }
+        .nom {
+            font-size:24px;
+        }
+        .piña {
+            font-size:30px !important;
+        }
+      }
+
   .container {
       text-align: center;
   }
@@ -46,3 +63,4 @@
       border: 2px solid #dddddd;
       padding: 15px;
   }
+  

@@ -13,6 +13,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Endroid\QrCode\Color\Color;
 use Endroid\QrCode\Encoding\Encoding;
 use Endroid\QrCode\ErrorCorrectionLevel\ErrorCorrectionLevelLow;
+use Endroid\QrCode\Label\Label;
 use Endroid\QrCode\QrCode;
 use Endroid\QrCode\Writer\PngWriter;
 use Knp\Snappy\Image;
@@ -40,13 +41,14 @@ class PromotorController extends AbstractController
     
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $promotor = $form->getData();
+            //$promotor = $form->getData();
             $dni = $promotor->getDni();
             $qrImagePath = '../public/img/' . $dni . '.png';
             $promotor->setQr($qrImagePath);
             $promotorRepository->save($promotor, true);
-
-            $enlace = 'http://192.168.1.23/qr-promotor/'.$promotor->getId();
+            $url = 'http://192.168.1.23:8000/"qr-promotor"/';
+            //$url = 'http://192.168.1.23:8000/qr-promotor/'.$promotor->getId();
+            $enlace = $url.$promotor->getId();
             $qrImage = $this->generateQRCode($enlace);
             $qrImage->saveToFile($qrImagePath);
             //file_put_contents($qrImagePath, $qrImage);
@@ -188,6 +190,7 @@ class PromotorController extends AbstractController
         ->setMargin(0)
         ->setForegroundColor(new Color(0, 0, 0))
         ->setBackgroundColor(new Color(255, 255, 255));
+        //$label = Label::create($data)->setText('HOLAAAA');
         $writer = new PngWriter();
         $qrImage = $writer->write($qrCode);
         return $qrImage;

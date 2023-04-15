@@ -39,7 +39,8 @@ class PromotorType extends AbstractType
                 'attr' => [
                     'onkeyup' => "this.value = this.value.replace(/[^a-zA-Z\s]/g, '')",
                     'title' => 'Solo se permiten letras',
-                    'placeholder' => 'Ingresar Nombre'
+                    'placeholder' => 'Ingresar Nombre',
+                    'maxlength' => 40
                 ],
             ])
             ->add('grupo', TextType::class, [
@@ -59,7 +60,8 @@ class PromotorType extends AbstractType
                 ],
                 'attr' => [
                     'onkeyup' => "this.value = this.value.replace(/[^a-zA-Z\d_-]/g, '')",
-                    'placeholder' => 'Ingresar Grupo'
+                    'placeholder' => 'Ingresar Grupo',
+                    'maxlength' => 7
                 ],
             ])
             

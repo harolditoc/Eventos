@@ -11,22 +11,34 @@
   font-family: Arial, sans-serif;
   background-image: url("../img/Witching\ Hour.jpg");
   }
-  
   .container {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 5px 17px; 
-  border: 1px outset #800000;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
-  max-width: 960px;
-  margin: 0 auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px 17px; 
+    border: 1px outset #800000;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    max-width: 960px;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    }
+    
+  @media only screen and (max-width: 768px) {
+    body {
+      background: #c31432 !important;
+    }
+    .container{
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      transform: translate(0%, 0%); 
+    }
   }
   
+ 
   h1 {
   font-size: 2rem;
   margin-bottom: 30px;
