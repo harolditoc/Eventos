@@ -61,14 +61,11 @@ div .logo2{
 
 
 
-.bp-card .bp-card_label a.price {
+.price {
   color: red;
   text-decoration: none;
   font-size: 36px;
-  padding: 5px;
-  padding-left: 50px;
-  padding-right: 50px;
-  border-radius: 3px;
+  text-align: center;
 }
 
 @media only screen and (max-width: 768px) {
@@ -81,13 +78,6 @@ div .logo2{
     height:300px;
   }
   .but {
-    /* -webkit-border-radius: 20px !important;
-    -moz-border-radius: 20px !important;
-    border-radius: 20px;
-    font-family: Arial;
-    display: inline-block;
-    cursor: pointer;
-    text-align: center; */
     width: 300px;
   }
 }

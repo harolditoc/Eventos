@@ -141,7 +141,7 @@ class __TwigTemplate_e7ee770e5b7b40cf94dc8ca50242a865 extends Template
         // line 62
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl((("img/" . twig_get_attribute($this->env, $this->source, (isset($context["promotor"]) || array_key_exists("promotor", $context) ? $context["promotor"] : (function () { throw new RuntimeError('Variable "promotor" does not exist.', 62, $this->source); })()), "dni", [], "any", false, false, false, 62)) . ".png")), "html", null, true);
         echo "\" width=\"200px\" height=\"200px\"></div>
-\t\t\t<a class=\"price\">
+\t\t\t<a class=\"price text-center\">
 \t\t\t\tGrupo: ";
         // line 64
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["promotor"]) || array_key_exists("promotor", $context) ? $context["promotor"] : (function () { throw new RuntimeError('Variable "promotor" does not exist.', 64, $this->source); })()), "grupo", [], "any", false, false, false, 64), "html", null, true);
@@ -244,7 +244,7 @@ class __TwigTemplate_e7ee770e5b7b40cf94dc8ca50242a865 extends Template
                  </p>
                  <p>LA SIGUIENTE IMAGEN ES TU ENTRADA QR </p>
                 <div class=\"img\"><img src=\"{{ asset('img/'~ promotor.dni ~ '.png') }}\" width=\"200px\" height=\"200px\"></div>
-\t\t\t<a class=\"price\">
+\t\t\t<a class=\"price text-center\">
 \t\t\t\tGrupo: {{ promotor.grupo}}
 \t\t\t</a></strong>
 \t\t</div>
